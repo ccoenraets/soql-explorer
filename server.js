@@ -9,7 +9,7 @@ app.use(express.static(__dirname + '/client'));
 app.all('/proxy', function(req, res) {
     var url = req.header('SalesforceProxy-Endpoint');
     console.log("proxying: " + url);
-    request({ url: url, headers: {'Authorization': req.header('X-Authorization')} }).pipe(res);
+    request({ url: url, method: req.method, json: req.body, headers: {'Authorization': req.header('X-Authorization')} }).pipe(res);
 });
 
 console.log('Listening on port 3000...');
