@@ -1,3 +1,3 @@
-## Force.com Mini API Explorer ##
+## SOQL REST API Explorer ##
 
 More information here: http://coenraets.org
