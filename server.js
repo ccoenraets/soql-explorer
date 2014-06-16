@@ -1,8 +1,12 @@
 var express = require('express'),
     http = require('http'),
-    request = require('request');
+    bodyParser     = require('body-parser'),
+    methodOverride = require('method-override'),
+    request = require('request'),
+    app = express();
 
-var app = express();
+app.use(bodyParser());          // pull information from html in POST
+app.use(methodOverride());      // simulate DELETE and PUT
 
 app.use(express.static(__dirname + '/client'));
 
@@ -12,5 +16,8 @@ app.all('/proxy', function(req, res) {
     request({ url: url, method: req.method, json: req.body, headers: {'Authorization': req.header('X-Authorization')} }).pipe(res);
 });
 
-console.log('Listening on port 3000...');
-http.createServer(app).listen(3000);
+app.set('port', process.env.PORT || 3000);
+
+app.listen(app.get('port'), function () {
+    console.log('Express server listening on port ' + app.get('port'));
+});
