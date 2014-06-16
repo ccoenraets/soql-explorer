@@ -1,12 +1,7 @@
 var express = require('express'),
     http = require('http'),
-    bodyParser     = require('body-parser'),
-    methodOverride = require('method-override'),
     request = require('request'),
     app = express();
-
-app.use(bodyParser());          // pull information from html in POST
-app.use(methodOverride());      // simulate DELETE and PUT
 
 app.use(express.static(__dirname + '/client'));
 

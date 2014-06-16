@@ -1,10 +1,8 @@
-var apiVersion = 'v29.0',
-//    clientId = 'YOUR_CONSUMER_KEY_HERE',
+var apiVersion = 'v30.0',
     clientId = '3MVG9JZ_r.QzrS7iIgijkHLRGgq38fkgsjwmOaztSQA9hZP1f4T.9ySMQ8bCHdECXswn0Y8axueTJlR2fGsLv',
     loginUrl = 'https://login.salesforce.com/',
-//    redirectURI = "http://localhost:3000/oauthcallback.html",
-    redirectURI = "https://soql-explorer.herokuapp.com/oauthcallback.html",
-    proxyURL = 'https://soql-explorer.herokuapp.com/proxy/',
+    redirectURI = "http://soql-explorer.herokuapp.com/oauthcallback.html",
+    proxyURL = 'http://soql-explorer.herokuapp.com//proxy/',
     client = new forcetk.Client(clientId, loginUrl, proxyURL);
 
 function login() {
@@ -14,7 +12,7 @@ function login() {
     popupCenter(url, 'login', 700, 600);
 }
 
-function loginDialogCallback(response) {
+function oauthCallback(response) {
     if (response && response.access_token) {
         client.setSessionToken(response.access_token, apiVersion, response.instance_url);
     } else {
