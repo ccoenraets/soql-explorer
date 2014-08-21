@@ -1,8 +1,8 @@
 var apiVersion = 'v30.0',
-    clientId = '3MVG9JZ_r.QzrS7iIgijkHLRGgq38fkgsjwmOaztSQA9hZP1f4T.9ySMQ8bCHdECXswn0Y8axueTJlR2fGsLv',
+    clientId = 'YOUR_CONSUMER_KEY_HERE',
     loginUrl = 'https://login.salesforce.com/',
-    redirectURI = "https://soql-explorer.herokuapp.com/oauthcallback.html",
-    proxyURL = 'https://soql-explorer.herokuapp.com/proxy',
+    redirectURI = "http://localhost:3000/oauthcallback.html",
+    proxyURL = 'http://localhost:3000/proxy',
     client = new forcetk.Client(clientId, loginUrl, proxyURL);
 
 function login() {
