@@ -1,15 +1,15 @@
 var apiVersion = 'v30.0',
-    clientId = 'YOUR_CONSUMER_KEY_HERE',
+    clientId = '3MVG9JZ_r.QzrS7iIgijkHLRGgq38fkgsjwmOaztSQA9hZP1f4T.9ySMQ8bCHdECXswn0Y8axueTJlR2fGsLv',
     loginUrl = 'https://login.salesforce.com/',
-    redirectURI = "http://localhost:3000/oauthcallback.html",
-    proxyURL = 'http://localhost:3000/proxy/',
+    redirectURI = "https://soql-explorer.herokuapp.com/oauthcallback.html",
+    proxyURL = 'https://soql-explorer.herokuapp.com/proxy',
     client = new forcetk.Client(clientId, loginUrl, proxyURL);
 
 function login() {
     var url = loginUrl + 'services/oauth2/authorize?display=popup&response_type=token' +
         '&client_id=' + encodeURIComponent(clientId) +
         '&redirect_uri=' + encodeURIComponent(redirectURI);
-    popupCenter(url, 'login', 700, 600);
+    window.open(url, 'login', 700, 600);
 }
 
 function oauthCallback(response) {
@@ -37,12 +37,3 @@ function executeQuery() {
 
 $('#btn-login').click(login);
 $('#btn-exec').click(executeQuery);
-
-function popupCenter(url, title, w, h) {
-    // Handles dual monitor setups
-    var parentLeft = window.screenLeft ? window.screenLeft : window.screenX;
-    var parentTop = window.screenTop ? window.screenTop : window.screenY;
-    var left = parentLeft + (window.innerWidth / 2) - (w / 2);
-    var top = parentTop + (window.innerHeight / 2) - (h / 2);
-    return window.open(url, title, 'width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
-}
