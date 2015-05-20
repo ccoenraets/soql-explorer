@@ -3,7 +3,7 @@
 <head>
     <title>SOQL Explorer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,31 +23,33 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">SOQL REST API Explorer</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" id="btn-login">Login</a></li>
-            </ul>
+            <a class="navbar-brand" href="#">SOQL Explorer</a>
         </div>
     </div>
 </div>
 
 <div class="container">
-    Enter a SOQL query:
-    <textarea id="query" rows="4">SELECT Name, Title, Phone FROM contact</textarea>
-    <button id="btn-exec" type="submit" class="btn btn-default"><span class="glyphicon glyphicon-flash"></span> Run Query</button>
-    <p style="padding-top: 12px;">
-    Result:
-    <textarea id="result" rows="18"></textarea>
-    </p>
-    Source code available here: <a href="https://github.com/ccoenraets/soql-explorer">https://github.com/ccoenraets/soql-explorer</a>
+    <div class="row vmargin">
+        <div class="col-lg-12">
+            Enter a SOQL query:
+            <textarea class="form-control vmargin" id="soql" rows="4">SELECT Name, Title, Phone FROM contact</textarea>
+            <button id="queryBtn" type="submit" class="btn btn-default"><span class="glyphicon glyphicon-flash"></span> Run Query</button>
+        </div>
+    </div>
+    <div class="row vmargin">
+        <div class="col-lg-12">
+            <p class="vmargin">Result:</p>
+            <textarea class="form-control" id="result" rows="18"></textarea>
+        </div>
+    </div>
+    <div class="row vmargin">
+        <div class="col-lg-12">
+            <p class="vmargin">Source code available here: <a href="https://github.com/ccoenraets/soql-explorer">https://github.com/ccoenraets/soql-explorer</a></p>
+        </div>
+    </div>
 </div>
 
-<script src="lib/jquery.js"></script>
-<script src="lib/bootstrap.min.js"></script>
-<script src="lib/forcetk.js"></script>
+<script src="lib/force.js"></script>
 <script src="js/app.js"></script>
-
 </body>
 </html>
